@@ -58,7 +58,8 @@ const ShoppingHome = () => {
             <ProductsListWrapper>
                 {productsList &&
                     productsList.map((product,id) => {
-                        return (<div key={id}>
+                        return (
+                        <div key={id}>
                             <Image src={product.image} alt={product.title}/>
                             <br/>
                             {product.title}
@@ -66,6 +67,7 @@ const ShoppingHome = () => {
                             {product.rating.rate}, {product.rating.count}
                             <br/>
                             {product.description}
+                          
                         </div>
                         )
                     })

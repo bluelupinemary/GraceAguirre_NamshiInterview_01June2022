@@ -24,14 +24,14 @@ export function CartContextProvider(props){
         });
     }
 
-    function itemIsFavoriteHandler(meetupId){
+    function itemIsFavoriteHandler(cartItemId){
         return userCartItems.some(item => item.id === cartItemId)
     }
 
     const context = {
         cartItems: userCartItems, 
         totalCartItems: userCartItems.length,
-        addCartItem: addCardItemHandler,
+        addCartItem: addCartItemHandler,
         removeFavorite: removeCardItemHandler,
         itemIsFavorite: itemIsFavoriteHandler
     };

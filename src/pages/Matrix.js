@@ -22,30 +22,25 @@ const StyledContainer = styled(Container)`
 `
 
 const Matrix = () => {
-    const [activeId, setActiveId] = useState(null);
+    const [activeIds, setActiveIds] = useState({});
 
     const toggleIsActiveHandler = (id) => {
+       
+        if(activeIds[id]){
+            setActiveIds((prevState) => ({
+                ...prevState,
+                [id]: false
+            }))
+        }else{
+            setActiveIds((prevState) => ({
+                ...prevState,
+                [id]: true
+            }))
+        }
         
-        setActiveId(id);
-        // setActiveIds((prevState) => ({
-        //     ...prevState,
-        //     [id]: true
-        //   }))
     }
 
-    // const getActiveId = (id) => {
-    //     Object.keys(activeIds).forEach((itemId, i) => {
-           
-    //         if( parseInt(itemId) === id){
-    //             console.log("found",id)
-    //             return true
-    //         }
-    //         else{
-    //             console.log("not found",id)
-    //             return false;
-    //         }
-    //       });
-    // }
+  
     
   return (
     <>
@@ -53,10 +48,10 @@ const Matrix = () => {
         <StyledContainer>
             <MatrixGrid>
                 {[...Array(16)].map((x, i) =>
-                    <GridItem key={i} isActive={(activeId === i ? true : false)} onClick={() => {toggleIsActiveHandler(i)}}> </GridItem>
+                    <GridItem key={i} isActive={(activeIds[i] === true) ? true : false} onClick={() => {toggleIsActiveHandler(i)}}> </GridItem>
                 )}
             </MatrixGrid>
-        </StyledContainer>
+        </StyledContainer> 
     </>
   )
 }
