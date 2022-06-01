@@ -30,6 +30,7 @@ const Image = styled.img`
     height: 5rem;
 `
 
+
 const ShoppingHome = () => {
     const [productsList, setProductsList] = useState(null);
     const [isFetched, setIsFetched] = useState(false);
@@ -45,7 +46,6 @@ const ShoppingHome = () => {
         setTimeout(()=>{
             setIsFetched(true);
         },500)
-        console.log("the list", productsList)
     },[isFetched]);
 
   return (
@@ -53,7 +53,7 @@ const ShoppingHome = () => {
     <Navbar />
     <Title>PRODUCTS LIST</Title>
     <StyledSection>
-        <Column width="25%"> a </Column>
+        <Column width="25%"> CATEGORIES: </Column>
         <Column width="50%">
             <ProductsListWrapper>
                 {productsList &&
@@ -73,7 +73,7 @@ const ShoppingHome = () => {
                 }
             </ProductsListWrapper>
         </Column>
-        <Column width="25%"> a </Column>
+        <Column width="25%"> CART:  </Column>
     </StyledSection>
     </>
   )
